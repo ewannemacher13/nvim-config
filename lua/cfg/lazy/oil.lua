@@ -6,6 +6,9 @@ return {
         vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 
         require("oil").setup({
+            keymaps = {
+                ["cd"] = "actions.cd",
+            },
             skip_confirm_for_simple_edits = true,
             view_options = {
                 show_hidden = true,
