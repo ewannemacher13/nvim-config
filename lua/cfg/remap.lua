@@ -33,7 +33,7 @@ vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
-vim.keymap.set("i", "<C-h>", "<cmd>:norm h<cr>")
-vim.keymap.set("i", "<C-j>", "<cmd>:norm j<cr>")
-vim.keymap.set("i", "<C-k>", "<cmd>:norm k<cr>")
-vim.keymap.set("i", "<C-l>", "<cmd>:norm l<cr>")
+vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
+vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
