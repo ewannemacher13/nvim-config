@@ -1,4 +1,5 @@
-local function attach(opts)
+local function attach(_opts)
+    local opts = {buffer = _opts.buffer, remap = false}
 	vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
 	vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
 	vim.keymap.set('n', '<leader>vws', function() vim.lsp.buf.workspace_symbol() end, opts)
@@ -15,6 +16,7 @@ local function attach(opts)
 	vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set('n', '<leader>lr', "<cmd>LspRestart<cr>", opts)
 
 
 end
@@ -38,6 +40,9 @@ return {
         ensure_installed = {
             'lua_ls',
             'rust_analyzer',
+            'tsserver',
+            'eslint',
+            'volar',
             'zls',
         },
         handlers = {

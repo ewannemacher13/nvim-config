@@ -1,11 +1,12 @@
 return {
     "stevearc/oil.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+--    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         vim.keymap.set("n", "-", "<CMD>Oil<CR>")
         vim.keymap.set("n", "<leader>pv", "<CMD>Oil<CR>")
 
         require("oil").setup({
+            columns = {},
             keymaps = {
                 ["cd"] = "actions.cd",
             },
