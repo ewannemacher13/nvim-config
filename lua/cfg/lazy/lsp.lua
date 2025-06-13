@@ -58,6 +58,18 @@ return {
                     }
                 })
             end,
+            --['zls'] = function()
+            --    local lspconfig = require("lspconfig")
+            --    lspconfig.zls.setup({
+            --        on_attach = attach,
+            --        cmd = {"/home/enix/prog/zig/zls/zig-out/bin/zls"},
+            --        settings = {
+            --            zls = {
+            --                zig_exe_path = "/home/enix/Downloads/zig-linux-x86_64-0.14.0-dev.3062+ff551374a/zig",
+            --            }
+            --        }
+            --    })
+            --end,
         }
         })
 
