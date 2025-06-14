@@ -7,7 +7,9 @@ return {
     },
 
     config = function()
-        require('telescope').setup({})
+        require('telescope').setup({
+            indent = { disable = true },
+        })
 
         local builtin = require('telescope.builtin')
 
@@ -17,11 +19,11 @@ return {
             builtin.grep_string({ search = vim.fn.input('Grep > ') })
         end)
         vim.keymap.set('n', '<leader>pws', function()
-           local word = vim.fn.expand("<cword>")
+            local word = vim.fn.expand("<cword>")
             builtin.grep_string({ search = word })
         end)
         vim.keymap.set('n', '<leader>pWs', function()
-           local word = vim.fn.expand("<cWORD>")
+            local word = vim.fn.expand("<cWORD>")
             builtin.grep_string({ search = word })
         end)
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})

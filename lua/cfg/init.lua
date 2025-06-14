@@ -25,10 +25,19 @@ autocmd("TextYankPost", {
     end,
 })
 
-autocmd({"BufWritePre"}, {
+autocmd({ "BufWritePre" }, {
     group = MyGroup,
     pattern = "*",
     command = [[%s/\s\+$//e]],
+})
+
+autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+        vim.opt.formatoptions:remove { "c", "r", "o" }
+    end,
+    group = MyGroup,
+    desc = "disable new line comment",
 })
 
 vim.g.netrw_browse_split = 0
