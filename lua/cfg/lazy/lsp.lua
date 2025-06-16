@@ -40,7 +40,7 @@ return {
         ensure_installed = {
             'lua_ls',
             'rust_analyzer',
-            'tsserver',
+            --'tsserver',
             'eslint',
             'volar',
             'zls',
@@ -58,10 +58,27 @@ return {
                         Lua = {
                             diagnostics = { globals = {"vim"}}
                         }
-                    }
+                    },
+                  on_attach =    attach,
+                })
+            end,
+            ["ts_ls"] = function()
+                local lspconfig = require("lspconfig")
+                lspconfig.ts_ls.setup({
+                  init_options = {
+                      maxTsServerMemory = 8192,
+                  },
+                  on_attach =    attach,
                 })
             end,
         }
+        })
+
+        local group = vim.api.nvim_create_augroup("Black", { clear = true })
+        vim.api.nvim_create_autocmd("bufWritePost", {
+            pattern = "*.py",
+            command = "silent !black %",
+            group = group,
         })
 
         local cmp = require('cmp')
@@ -85,6 +102,8 @@ return {
               { name = 'buffer' },
             })
         })
+
+        cmp.setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 
         vim.diagnostic.config({
             update_on_insert = true,
