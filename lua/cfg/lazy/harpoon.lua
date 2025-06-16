@@ -18,5 +18,7 @@ return {
         vim.keymap.set('n', '<leader>c', function() require('harpoon.cmd-ui').toggle_quick_menu() end)
         vim.keymap.set('n', '<A-i>', function() term.gotoTerminal(1) end)
         vim.keymap.set('n', '<A-o>', function() term.gotoTerminal(2) end)
+
+        vim.keymap.set('n', '<A-h>', function() term.sendCommand(1, 1) end)
     end
 }
