@@ -30,6 +30,7 @@ vim.keymap.set({ "n", "v" }, "<Del>", [["_x]])
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-w>", "<C-\\><C-n><C-w>")
 
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
