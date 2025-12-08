@@ -5,6 +5,7 @@ return {
             enabled = true,
             cloak_character = "*",
             highlight_group = "Comment",
+            cloak_on_leave = true,
             patterns = {
                 {
                     file_pattern = {
@@ -14,7 +15,7 @@ return {
                     },
                     cloak_pattern = "=.+",
                 },
-            }
+            },
         })
-    end
+    end,
 }

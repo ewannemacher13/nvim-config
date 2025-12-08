@@ -1,15 +1,10 @@
 return {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
-
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
-
+    tag = "v0.2.0",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    event = "VimEnter",
     config = function()
-        require('telescope').setup({
-            indent = { disable = true },
-        })
+        require('telescope').setup({})
 
         local builtin = require('telescope.builtin')
 
@@ -27,5 +22,5 @@ return {
             builtin.grep_string({ search = word })
         end)
         vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})
-    end
+    end,
 }
