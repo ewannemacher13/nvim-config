@@ -20,7 +20,16 @@ return {
                     },
                 },
             },
-            ts_ls = {},
+            pyright = {},
+            clangd = {
+                cmd = {
+                    "clangd",
+                    "--background-index",
+                    "--clang-tidy",
+                    "--query-driver=/opt/dspic33/xc16/v1.50/bin/xc16-gcc"
+                    -- "--query-driver=/opt/dspic33/xc16/v1.50/bin/xc16-gcc,/usr/bin/gcc,/usr/bin/g++"
+                },
+            },
         }
 
         require("mason").setup()
@@ -28,6 +37,7 @@ return {
         vim.list_extend(ensure_installed, {
             "stylua",
             { "lua_ls", version = "3.15.0" },
+            "black",
         })
 
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
