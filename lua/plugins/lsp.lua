@@ -38,6 +38,7 @@ return {
             "stylua",
             { "lua_ls", version = "3.15.0" },
             "black",
+            "cortex-debug",
         })
 
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
