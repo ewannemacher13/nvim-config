@@ -7,6 +7,8 @@ vim.o.number = true
 vim.o.relativenumber = true
 
 vim.o.breakindent = true
+vim.o.smartindent = false
+vim.o.cindent = false
 
 vim.o.wrap = false
 

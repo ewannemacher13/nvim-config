@@ -26,6 +26,8 @@ return {
                     "clangd",
                     "--background-index",
                     "--clang-tidy",
+                    "--compile-commands-dir=.build",
+                    "--function-arg-placeholders=false",
                     "--query-driver=/opt/dspic33/xc16/v1.50/bin/xc16-gcc"
                     -- "--query-driver=/opt/dspic33/xc16/v1.50/bin/xc16-gcc,/usr/bin/gcc,/usr/bin/g++"
                 },
