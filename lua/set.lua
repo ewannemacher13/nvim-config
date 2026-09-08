@@ -17,6 +17,11 @@ vim.o.softtabstop = 2
 vim.o.shiftwidth = 2
 vim.o.expandtab = true
 
+-- Neovim auto-applies a project's .editorconfig (since 0.9), which overrides
+-- the indent settings above per-buffer (e.g. a project with indent_size=4
+-- makes cindent indent new lines by 4). Disable it so the values above win.
+vim.g.editorconfig = false
+
 vim.o.undofile = true
 
 -- case insensitive searching (unless search pattern contains capitals or \C)

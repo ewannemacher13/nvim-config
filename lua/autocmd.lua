@@ -2,13 +2,16 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- '0#' in indentkeys causes '#' typed at the start of a line to reindent to
 -- column 0 (via indentexpr). smartindent/cindent have the same behavior.
--- Override both per-buffer since filetype plugins run after set.lua.
+-- The c/r/o formatoptions flags auto-continue comments on newline (r/o) and
+-- auto-wrap them (c). All of these get re-set by filetype plugins, which run
+-- after set.lua, so override them per-buffer here too.
 autocmd("FileType", {
-    desc = "disable # dedenting",
+    desc = "disable # dedenting and comment continuation",
     pattern = "*",
     callback = function()
         vim.opt_local.smartindent = false
         vim.opt_local.indentkeys:remove("0#")
+        vim.opt_local.formatoptions:remove({ "c", "r", "o" })
     end,
 })
 
@@ -25,10 +28,3 @@ autocmd("BufWritePre", {
     desc = "remove trailing whitespace",
     command = [[%s/\s\+$//e]],
 })
-
--- autocmd("FileType", {
---     desc = "disable comment continuation on new line",
---     callback = function()
---         vim.opt.formatoptions:remove({ "c", "r", "o" })
---     end,
--- })
