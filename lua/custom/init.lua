@@ -25,3 +25,12 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
         end
     end,
 })
+
+--- colors
+local colors = require("custom.plugins.colors")
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    colors.colorscheme()
+  end
+})
