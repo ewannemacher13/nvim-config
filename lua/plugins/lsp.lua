@@ -28,8 +28,10 @@ return {
                     "--clang-tidy",
                     "--compile-commands-dir=.build",
                     "--function-arg-placeholders=false",
-                    "--query-driver=/opt/dspic33/xc16/v1.50/bin/xc16-gcc"
-                    -- "--query-driver=/opt/dspic33/xc16/v1.50/bin/xc16-gcc,/usr/bin/gcc,/usr/bin/g++"
+                    -- whitelist every cross-compiler clangd must introspect for
+                    -- builtin includes + target macros (globs = version-proof).
+                    -- riscv was missing, so riscv boards got no system headers.
+                    "--query-driver=/opt/riscv/*/bin/riscv-none-elf-gcc,/opt/dspic33/xc16/*/bin/xc16-gcc"
                 },
             },
         }

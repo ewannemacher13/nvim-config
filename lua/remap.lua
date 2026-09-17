@@ -30,6 +30,9 @@ vim.keymap.set({ "n", "v" }, "<Del>", [["_x]])
 vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
+-- <Esc> above leaves terminal mode, so send a literal Escape to the program
+-- inside the terminal (e.g. to interrupt Claude Code) with Alt+Esc.
+vim.keymap.set("t", "<M-Esc>", "<Esc>")
 vim.keymap.set("t", "<C-w>", "<C-\\><C-n><C-w>")
 
 vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
